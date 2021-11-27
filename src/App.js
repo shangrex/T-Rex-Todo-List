@@ -1,19 +1,43 @@
-import './App.css';
-import Background from './components/Background'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Tasks from './components/Tasks'
 import pic_rex from './images/t-rex.png'
+import trans_pic_rex from './images/trans-t-rex.png'
 
 function App() {
-  return (
-      <div style={background_style}>
-        <Header/>
-      </div>
-  );
+    const [tasks, settasks] = useState([
+        {
+            "text": "pizza hut dinner",
+            "time": "11:30",
+            "reminder": false,
+            "id": 1
+        },
+        {
+            "text": "jserv hw3",
+            "time": "7:30",
+            "reminder": true,
+            "id": 2
+        }
+    ])
+
+    const deletetask = (id)=>{
+        console.log(id)
+        settasks(tasks.filter((task)=>task.id !== id))
+    }
+
+    return (
+        <div style={background_style}>
+            <div className='container'>
+                <Header/>
+                <Tasks tasks={tasks} onDelete={deletetask}/>
+            </div>
+        </div>
+    );
 }
 
 
 const background_style = {
-    backgroundImage: `url(${pic_rex})`
+    backgroundImage: `url(${trans_pic_rex})`
     // ,width:'100%'
     ,backgroundRepeat: 'no-repeat'
     /* Center and scale the image nicely */
@@ -21,7 +45,8 @@ const background_style = {
     ,width: '100vw'
     ,height: '150vh'
     ,margin: '0'
-    ,backgroundColor: 'rgba(255, 255, 255, 0.01)'
+    // ,opacity: 0.3
+    // ,backgroundColor: 'rgba(255, 255, 255, 0.9)'
 }
 
 const head_style = {
