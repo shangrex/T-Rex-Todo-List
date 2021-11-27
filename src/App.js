@@ -1,27 +1,34 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import Inputbar from './components/Inputbar'
 import pic_rex from './images/t-rex.png'
 import trans_pic_rex from './images/trans-t-rex.png'
 
 function App() {
     const [tasks, settasks] = useState([
         {
+            "id": 1,
             "text": "pizza hut dinner",
             "time": "11:30",
-            "reminder": false,
-            "id": 1
         },
         {
+            "id": 2,
             "text": "jserv hw3",
             "time": "7:30",
-            "reminder": true,
-            "id": 2
         }
     ])
 
+    const addtask = (task)=>{
+        console.log("Adding task")
+		const id = Math.floor(Math.random()*10000)+1
+        const newTask = {id, ...task}
+        settasks([...tasks, newTask])
+        console.log(tasks)
+    }
+
     const deletetask = (id)=>{
-        console.log(id)
+        console.log("delete", id)
         settasks(tasks.filter((task)=>task.id !== id))
     }
 
@@ -30,6 +37,7 @@ function App() {
             <div className='container'>
                 <Header/>
                 <Tasks tasks={tasks} onDelete={deletetask}/>
+                <Inputbar onAdd={addtask}/>
             </div>
         </div>
     );
@@ -47,13 +55,6 @@ const background_style = {
     ,margin: '0'
     // ,opacity: 0.3
     // ,backgroundColor: 'rgba(255, 255, 255, 0.9)'
-}
-
-const head_style = {
-    height: '100%'
-    ,margin: '0'
-    ,font: '400 15px/1.8 "Lato", sans-serif'
-    ,color: '#777'
 }
 
 export default App;
