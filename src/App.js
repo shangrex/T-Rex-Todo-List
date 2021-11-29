@@ -6,18 +6,15 @@ import pic_rex from './images/t-rex.png'
 import trans_pic_rex from './images/trans-t-rex.png'
 
 function App() {
+    const [showtask, setshowtask] = useState(false)
     const [tasks, settasks] = useState([
         {
             "id": 1,
             "text": "pizza hut dinner",
-            "time": "11:30",
+            "time": "18:30",
         },
-        {
-            "id": 2,
-            "text": "jserv hw3",
-            "time": "7:30",
-        }
     ])
+
 
     const addtask = (task)=>{
         console.log("Adding task")
@@ -35,9 +32,9 @@ function App() {
     return (
         <div style={background_style}>
             <div className='container'>
-                <Header/>
+                <Header showtask={showtask} onTask={()=>{setshowtask(!showtask)}}/>
+                {showtask && <Inputbar onAdd={addtask}/>}
                 <Tasks tasks={tasks} onDelete={deletetask}/>
-                <Inputbar onAdd={addtask}/>
             </div>
         </div>
     );
