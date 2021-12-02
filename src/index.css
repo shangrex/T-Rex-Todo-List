@@ -22,7 +22,6 @@ code {
 
 .container {
   max-width: 60vw;
-  max-height: 60vh;
   margin: 30px auto;
   overflow: auto;
   min-height: 30vh;
