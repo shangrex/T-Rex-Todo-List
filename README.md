@@ -1,5 +1,5 @@
 # T-Rex-Todo-List
-This project is to practice the React.js.
+This project is to practice the React.js. Function contains basic to do list and pomodoro technique.
 
 # Getting Started with Create React App
 

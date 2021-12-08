@@ -89,3 +89,15 @@ code {
   padding: 3px 7px;
   font-size: 20px;
 }
+
+.timer_container {
+  margin: auto;
+  border-radius: 10px;
+  display: block;
+  width: 30vw;
+  height: 30vh;
+  text-align: center;
+  background-color: rgba(221, 234, 245, 0.8);
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
+  font-size: 45px;
+}

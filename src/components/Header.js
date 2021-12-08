@@ -1,11 +1,11 @@
 import React from 'react'
-import Button from './Button'
+import Taskbutton from './Taskbutton'
 
 export default function Header({showtask, onTask}) {
     return (
         <div className='header'>
             <h1>T-Rex-Todo-List</h1>
-            <Button 
+            <Taskbutton 
                 color={'black'}
                 showtask={showtask}
                 onTask={onTask}

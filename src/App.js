@@ -1,12 +1,20 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import Timer from './components/Timer'
 import Inputbar from './components/Inputbar'
+import Resettimebtn from './components/Resettimebtn'
+import Switchtimebtn from './components/Switchtimebtn'
 import pic_rex from './images/t-rex.png'
 import trans_pic_rex from './images/trans-t-rex.png'
+import Taskbutton from './components/Taskbutton'
 
 function App() {
+    // Show task
     const [showtask, setshowtask] = useState(false)
+    // Timer count
+    const [count , setCount] = useState(1500);
+    const [coundown, setCountdown] = useState(false);
     const [tasks, settasks] = useState([
         {
             "id": 1,
@@ -15,6 +23,28 @@ function App() {
         },
     ])
 
+    useEffect(()=>{
+        if(coundown === true){
+            const timer = setInterval(()=>{
+                setCount(count-1);
+            }, 1000)
+            //Clean up can be done like this
+            return () => {
+                clearInterval(timer);
+            }
+        }
+        
+        
+    }); 
+
+    const reset_time = ()=>{
+        setCount(1500);
+        setCountdown(false);
+    }
+
+    const switch_time = () => {
+        setCountdown(!coundown);
+    }
 
     const addtask = (task)=>{
         console.log("Adding task")
@@ -33,6 +63,11 @@ function App() {
         <div style={background_style}>
             <div className='container'>
                 <Header showtask={showtask} onTask={()=>{setshowtask(!showtask)}}/>
+                <div className="timer_container">
+                    <Timer time_count={count}/>
+                    <Resettimebtn onReset={reset_time}/>
+                    <Switchtimebtn onSwitch={switch_time}/>
+                </div>
                 {showtask && <Inputbar onAdd={addtask}/>}
                 <Tasks tasks={tasks} onDelete={deletetask}/>
             </div>

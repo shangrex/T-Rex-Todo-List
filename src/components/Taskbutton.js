@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Button({color, text, onTask}) {
+export default function Taskbutton({color, text, onTask}) {
     return (
         <div className='header'>
             <button  
