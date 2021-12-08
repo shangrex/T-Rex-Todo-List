@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Switchtimebtn({onSwitch}) {
+export default function Switchtimebtn({onSwitch, countdown}) {
     return (
         <div>
         <button  
@@ -8,7 +8,7 @@ export default function Switchtimebtn({onSwitch}) {
             style={{backgroundColor : 'black'}}
             onClick={onSwitch}
         >
-        Start
+        {countdown ? 'Stop ' : 'Start'}
         </button>
         </div>
     )

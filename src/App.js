@@ -33,8 +33,6 @@ function App() {
                 clearInterval(timer);
             }
         }
-        
-        
     }); 
 
     const reset_time = ()=>{
@@ -65,8 +63,8 @@ function App() {
                 <Header showtask={showtask} onTask={()=>{setshowtask(!showtask)}}/>
                 <div className="timer_container">
                     <Timer time_count={count}/>
+                    <Switchtimebtn onSwitch={switch_time} countdown={coundown}/>
                     <Resettimebtn onReset={reset_time}/>
-                    <Switchtimebtn onSwitch={switch_time}/>
                 </div>
                 {showtask && <Inputbar onAdd={addtask}/>}
                 <Tasks tasks={tasks} onDelete={deletetask}/>
