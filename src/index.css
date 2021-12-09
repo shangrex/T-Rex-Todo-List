@@ -96,6 +96,7 @@ code {
   display: block;
   width: 30vw;
   height: 30vh;
+  min-width: 20vw;
   text-align: center;
   background-color: rgba(221, 234, 245, 0.8);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
@@ -103,8 +104,7 @@ code {
 }
 
 .time_btn {
-  display: flex;
-  margin: auto;
+  display: inline-flex;
 }
 
 .left_icon {
@@ -127,4 +127,16 @@ code {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+}
+
+.divider {
+  width:1vw;
+  height:auto;
+  display:inline-block;
+}
+
+.divider_title {
+  width:1vw;
+  height: 4vh;
+  display: block;
 }

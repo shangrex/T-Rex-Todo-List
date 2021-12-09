@@ -64,11 +64,19 @@ function App() {
             <div className='container'>
                 <Header showtask={showtask} onTask={()=>{setshowtask(!showtask)}}/>
                 <div className="timer_container">
+                    <div className="divider_title"></div>
                     <Timer time_count={count}/>
                     <div className="time_btn">
                         <AiOutlineDoubleLeft className="left_icon"/>
+                        <div className="divider"></div>
+                        <div className="divider"></div>
+                        <div className="divider"></div>
                         <Switchtimebtn onSwitch={switch_time} countdown={coundown}/>
+                        <div className="divider"></div>
                         <Resettimebtn onReset={reset_time}/>
+                        <div className="divider"></div>
+                        <div className="divider"></div>
+                        <div className="divider"></div>
                         <AiOutlineDoubleRight className="right_icon"/>
                     </div>
                 </div>
