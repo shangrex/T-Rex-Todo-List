@@ -101,3 +101,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
   font-size: 45px;
 }
+
+.time_btn {
+  display: flex;
+  margin: auto;
+}
+
+.left_icon {
+  display: inline-block;
+}
+
+.right_icon {
+  display: inline-block;
+}
+
+.btn_switch {
+  display: block;
+  margin: auto;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}

@@ -4,7 +4,7 @@ export default function Resettimebtn({onReset}) {
     return (
         <div>
             <button  
-                className='btn' 
+                className='btn_switch' 
                 style={{backgroundColor : 'black'}}
                 onClick={onReset}
             >

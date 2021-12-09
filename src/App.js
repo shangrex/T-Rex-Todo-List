@@ -8,6 +8,8 @@ import Switchtimebtn from './components/Switchtimebtn'
 import pic_rex from './images/t-rex.png'
 import trans_pic_rex from './images/trans-t-rex.png'
 import Taskbutton from './components/Taskbutton'
+import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from 'react-icons/ai'
+
 
 function App() {
     // Show task
@@ -63,8 +65,12 @@ function App() {
                 <Header showtask={showtask} onTask={()=>{setshowtask(!showtask)}}/>
                 <div className="timer_container">
                     <Timer time_count={count}/>
-                    <Switchtimebtn onSwitch={switch_time} countdown={coundown}/>
-                    <Resettimebtn onReset={reset_time}/>
+                    <div className="time_btn">
+                        <AiOutlineDoubleLeft className="left_icon"/>
+                        <Switchtimebtn onSwitch={switch_time} countdown={coundown}/>
+                        <Resettimebtn onReset={reset_time}/>
+                        <AiOutlineDoubleRight className="right_icon"/>
+                    </div>
                 </div>
                 {showtask && <Inputbar onAdd={addtask}/>}
                 <Tasks tasks={tasks} onDelete={deletetask}/>

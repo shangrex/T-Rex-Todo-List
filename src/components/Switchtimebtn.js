@@ -4,7 +4,7 @@ export default function Switchtimebtn({onSwitch, countdown}) {
     return (
         <div>
         <button  
-            className='btn' 
+            className='btn_switch' 
             style={{backgroundColor : 'black'}}
             onClick={onSwitch}
         >
