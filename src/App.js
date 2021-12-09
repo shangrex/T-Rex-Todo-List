@@ -26,7 +26,7 @@ function App() {
     ])
 
     useEffect(()=>{
-        if(coundown === true){
+        if(coundown === true && count >= 0){
             const timer = setInterval(()=>{
                 setCount(count-1);
             }, 1000)
