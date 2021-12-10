@@ -5,9 +5,7 @@ import Timer from './components/Timer'
 import Inputbar from './components/Inputbar'
 import Resettimebtn from './components/Resettimebtn'
 import Switchtimebtn from './components/Switchtimebtn'
-import pic_rex from './images/t-rex.png'
 import trans_pic_rex from './images/trans-t-rex.png'
-import Taskbutton from './components/Taskbutton'
 import {AiOutlineDoubleLeft, AiOutlineDoubleRight} from 'react-icons/ai'
 
 
@@ -35,6 +33,10 @@ function App() {
                 clearInterval(timer);
             }
         }
+        else if(count < 0){
+            setCount(0);
+            setCountdown(false);
+        }
     }); 
 
     const reset_time = ()=>{
@@ -46,10 +48,18 @@ function App() {
         setCountdown(!coundown);
     }
 
-    const addtask = (task)=>{
+    const add_time = () => {
+        setCount(count+300);
+    }
+    
+    const minus_time = () => {
+        setCount(count-300);
+    }
+
+    function addtask(task) {
         console.log("Adding task")
-		const id = Math.floor(Math.random()*10000)+1
-        const newTask = {id, ...task}
+        const id = Math.floor(Math.random() * 10000) + 1
+        const newTask = { id, ...task }
         settasks([...tasks, newTask])
         console.log(tasks)
     }
@@ -67,7 +77,7 @@ function App() {
                     <div className="divider_title"></div>
                     <Timer time_count={count}/>
                     <div className="time_btn">
-                        <AiOutlineDoubleLeft className="left_icon"/>
+                        <AiOutlineDoubleLeft className="left_icon" onClick={minus_time}/>
                         <div className="divider"></div>
                         <div className="divider"></div>
                         <div className="divider"></div>
@@ -77,7 +87,7 @@ function App() {
                         <div className="divider"></div>
                         <div className="divider"></div>
                         <div className="divider"></div>
-                        <AiOutlineDoubleRight className="right_icon"/>
+                        <AiOutlineDoubleRight className="right_icon" onClick={add_time}/>
                     </div>
                 </div>
                 {showtask && <Inputbar onAdd={addtask}/>}
