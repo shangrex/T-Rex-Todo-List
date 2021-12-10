@@ -37,7 +37,7 @@ function App() {
             setCount(0);
             setCountdown(false);
         }
-    }); 
+    }, [coundown, count]); 
 
     const reset_time = ()=>{
         setCount(1500);
