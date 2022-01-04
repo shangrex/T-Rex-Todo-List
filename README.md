@@ -15,6 +15,8 @@ The technique can seperate into four steps.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Future Work
+- [ ] Add task priority
 
 ## Reference
 I have refer to the [course here](https://github.com/bradtraversy/react-crash-2021)
